@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Sameer — Freelance Digital Consultant & MSME Growth Partner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --blue: #2563EB;
+    --blue-light: #60A5FA;
+    --blue-dark: #1D4ED8;
+    --navy: #060E1C;
+    --navy-mid: #0D1A30;
+    --navy-light: #152540;
+    --text-main: #E8F0FF;
+    --text-muted: #7A90B8;
+    --accent: #38BDF8;
+    --accent-light: #7DD3FC;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(6,14,28,0.93);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(37,99,235,0.18);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--blue-light);
+    letter-spacing: 0.02em; text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--text-muted); font-size: 0.88rem; font-weight: 400;
+    text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue-light); }
+
+  .nav-cta {
+    background: var(--blue); color: #fff; font-size: 0.85rem;
+    font-weight: 500; padding: 0.55rem 1.4rem; border-radius: 3px;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--blue-dark); }
+
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 8rem 5% 5rem; position: relative; overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 60% at 75% 45%, rgba(37,99,235,0.09) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 50% at 15% 75%, rgba(56,189,248,0.06) 0%, transparent 65%);
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.033;
+    background-image: linear-gradient(rgba(96,165,250,0.5) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(96,165,250,0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content { position: relative; max-width: 700px; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.35);
+    color: var(--blue-light); font-size: 0.78rem; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 2px;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--blue-light); animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 1.5rem; letter-spacing: -0.01em;
+  }
+
+  h1 em { font-style: normal; color: var(--blue-light); }
+
+  .hero-sub {
+    font-size: 1.08rem; color: var(--text-muted);
+    max-width: 540px; margin-bottom: 2.5rem;
+    line-height: 1.78; font-weight: 300;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--blue); color: #fff;
+    padding: 0.9rem 2rem; border-radius: 3px;
+    font-size: 0.92rem; font-weight: 500; text-decoration: none;
+    transition: background 0.2s, transform 0.2s; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+  .btn-outline {
+    border: 1px solid rgba(37,99,235,0.5); color: var(--blue-light);
+    padding: 0.9rem 2rem; border-radius: 3px;
+    font-size: 0.92rem; font-weight: 400; text-decoration: none;
+    transition: background 0.2s; display: inline-block;
+  }
+  .btn-outline:hover { background: rgba(37,99,235,0.1); }
+
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(37,99,235,0.15);
+    flex-wrap: wrap;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--blue-light);
+  }
+
+  .stat-label {
+    font-size: 0.78rem; color: var(--text-muted);
+    letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.2rem;
+  }
+
+  section { padding: 6rem 5%; }
+
+  .section-tag {
+    font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--blue-light); margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.7rem;
+  }
+  .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--blue-light); }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+    font-weight: 700; line-height: 1.18; margin-bottom: 1rem;
+  }
+
+  .section-intro {
+    color: var(--text-muted); font-size: 1rem; max-width: 540px;
+    line-height: 1.78; margin-bottom: 3.5rem; font-weight: 300;
+  }
+
+  .about { background: var(--navy-mid); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;
+    align-items: start; margin-top: 2rem;
+  }
+
+  .expertise-card {
+    background: var(--navy); border: 1px solid rgba(37,99,235,0.15);
+    border-radius: 6px; padding: 2.2rem;
+    position: relative; overflow: hidden; transition: border-color 0.3s;
+  }
+  .expertise-card:hover { border-color: rgba(37,99,235,0.4); }
+  .expertise-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: var(--blue);
+  }
+
+  .expertise-icon {
+    width: 46px; height: 46px; border-radius: 4px;
+    background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; margin-bottom: 1.3rem;
+  }
+
+  .expertise-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 600; margin-bottom: 0.7rem;
+  }
+
+  .expertise-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; }
+
+  .expertise-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+
+  .tag {
+    font-size: 0.73rem; padding: 0.27rem 0.65rem;
+    background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.25);
+    color: var(--blue-light); border-radius: 2px;
+  }
+
+  .tag.sky {
+    background: rgba(56,189,248,0.1); border-color: rgba(56,189,248,0.25);
+    color: var(--accent-light);
+  }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
+  }
+
+  .service-card {
+    background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 6px; padding: 2rem; transition: border-color 0.3s, transform 0.3s;
+  }
+  .service-card:hover { border-color: rgba(37,99,235,0.3); transform: translateY(-3px); }
+
+  .service-num {
+    font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 700;
+    color: rgba(37,99,235,0.18); line-height: 1; margin-bottom: 0.8rem;
+  }
+
+  .service-card h3 { font-size: 0.98rem; font-weight: 500; margin-bottom: 0.55rem; }
+  .service-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.68; }
+
+  .experience { background: var(--navy-mid); }
+
+  .exp-timeline { max-width: 760px; }
+
+  .exp-item {
+    display: grid; grid-template-columns: 130px 1fr;
+    gap: 2rem; padding: 2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .exp-item:last-child { border-bottom: none; }
+
+  .exp-year { font-size: 0.78rem; color: var(--blue-light); letter-spacing: 0.05em; padding-top: 0.3rem; }
+  .exp-company { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-top: 0.2rem; }
+
+  .exp-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem;
+  }
+
+  .exp-desc { font-size: 0.87rem; color: var(--text-muted); line-height: 1.72; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
+  }
+
+  .project-card {
+    background: var(--navy-mid); border: 1px solid rgba(37,99,235,0.12);
+    border-radius: 6px; overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .project-card:hover { border-color: rgba(37,99,235,0.38); transform: translateY(-3px); }
+
+  .project-thumb {
+    width: 100%; height: 120px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.4rem; background: var(--navy-light);
+    border-bottom: 1px solid rgba(37,99,235,0.1);
+  }
+
+  .project-body { padding: 1.3rem; }
+
+  .project-type {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--blue-light); margin-bottom: 0.35rem;
+  }
+
+  .project-card h3 { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.45rem; }
+  .project-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
+
+  .project-result {
+    margin-top: 0.8rem; font-size: 0.79rem;
+    color: var(--accent-light); font-weight: 500;
+  }
+
+  /* CERTS */
+  .certs-bg { background: var(--navy-mid); }
+
+  .cert-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem;
+  }
+
+  .cert-card {
+    background: var(--navy); border: 1px solid rgba(37,99,235,0.12);
+    border-radius: 6px; padding: 1.5rem 1.1rem; text-align: center;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .cert-card:hover { border-color: rgba(37,99,235,0.38); transform: translateY(-2px); }
+
+  .cert-logo { font-size: 1.8rem; margin-bottom: 0.65rem; display: block; }
+  .cert-issuer { font-size: 0.68rem; color: var(--blue-light); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .cert-name { font-size: 0.82rem; font-weight: 500; line-height: 1.38; }
+  .cert-year { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.35rem; }
+
+  /* TRUST / TESTIMONIALS */
+  .trust { background: var(--navy-mid); }
+
+  .trust-row {
+    display: flex; align-items: center; gap: 1rem;
+    flex-wrap: wrap; margin-bottom: 3rem;
+  }
+
+  .trust-badge {
+    background: var(--navy); border: 1px solid rgba(37,99,235,0.18);
+    padding: 0.55rem 1rem; border-radius: 3px;
+    font-size: 0.82rem; color: var(--text-muted);
+  }
+
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
+  }
+
+  .testimonial {
+    background: var(--navy); border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 6px; padding: 1.8rem;
+  }
+
+  .testimonial-stars { color: var(--blue-light); font-size: 0.88rem; margin-bottom: 0.9rem; }
+  .testimonial-text { font-size: 0.87rem; color: var(--text-muted); line-height: 1.75; font-style: italic; margin-bottom: 1.1rem; }
+  .testimonial-author { font-size: 0.84rem; font-weight: 500; }
+  .testimonial-from { font-size: 0.76rem; color: var(--text-muted); }
+
+  /* PAYMENT */
+  .payment-section { background: #EFF6FF; color: #0D1A30; }
+  .payment-section .section-tag { color: #1D4ED8; }
+  .payment-section .section-tag::before { background: #1D4ED8; }
+  .payment-section h2 { color: #0D1A30; }
+  .payment-section .section-intro { color: #3B5280; }
+
+  .payment-methods { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-bottom: 2rem; }
+
+  .pay-method {
+    background: #fff; border: 1px solid #BFDBFE;
+    border-radius: 4px; padding: 0.75rem 1.2rem;
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.86rem; font-weight: 500; color: #1E3A5F;
+  }
+
+  .security-badges { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+
+  .security-badge {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.81rem; color: #2D4A70;
+  }
+  .security-badge svg { width: 15px; height: 15px; }
+
+  .cta-box {
+    background: var(--navy); border-radius: 6px;
+    padding: 2.8rem 3rem; display: grid;
+    grid-template-columns: 1fr auto; align-items: center; gap: 2rem;
+  }
+  .cta-box h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.6rem;
+    color: var(--text-main); margin-bottom: 0.4rem;
+  }
+  .cta-box p { color: var(--text-muted); font-size: 0.9rem; }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2rem;
+  }
+
+  .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 0.9rem; }
+  .contact-info p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.6rem; }
+
+  .contact-link {
+    display: flex; align-items: center; gap: 0.65rem;
+    color: var(--blue-light); font-size: 0.87rem;
+    text-decoration: none; margin-bottom: 0.7rem; transition: opacity 0.2s;
+  }
+  .contact-link:hover { opacity: 0.72; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 0.95rem; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.95rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.38rem; }
+  .form-group label { font-size: 0.76rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px; padding: 0.7rem 1rem;
+    color: var(--text-main); font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; outline: none; transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: rgba(37,99,235,0.45); }
+  .form-group select option { background: var(--navy-mid); }
+  .form-group textarea { resize: vertical; min-height: 88px; }
+
+  .submit-btn {
+    background: var(--blue); color: #fff; border: none;
+    padding: 0.92rem 2.4rem; border-radius: 3px;
+    font-size: 0.91rem; font-weight: 500; cursor: pointer;
+    transition: background 0.2s; align-self: flex-start;
+  }
+  .submit-btn:hover { background: var(--blue-dark); }
+
+  footer {
+    background: #030810; padding: 1.6rem 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.05); flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-copy { font-size: 0.77rem; color: var(--text-muted); }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { font-size: 0.77rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--blue-light); }
+
+  .divider { width:100%; height:1px; background: linear-gradient(90deg, transparent, rgba(37,99,235,0.22), transparent); }
+
+  @keyframes fadeInUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+  .hero-content > * { animation: fadeInUp 0.7s ease both; }
+  .hero-content > *:nth-child(1){animation-delay:.1s}
+  .hero-content > *:nth-child(2){animation-delay:.22s}
+  .hero-content > *:nth-child(3){animation-delay:.34s}
+  .hero-content > *:nth-child(4){animation-delay:.46s}
+  .hero-content > *:nth-child(5){animation-delay:.58s}
+
+  @media(max-width:900px){
+    .about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
+    .services-grid,.projects-grid{grid-template-columns:1fr 1fr}
+    .cert-grid{grid-template-columns:repeat(2,1fr)}
+    .testimonials-grid{grid-template-columns:1fr}
+    .cta-box{grid-template-columns:1fr}
+    .nav-links{display:none}
+  }
+  @media(max-width:600px){
+    .services-grid,.projects-grid{grid-template-columns:1fr}
+    .cert-grid{grid-template-columns:1fr 1fr}
+    .form-row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Mohammed Sameer</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Available for International Clients</div>
+    <h1>
+      Freelance Digital<br>
+      Consultant &<br>
+      <em>MSME Growth Partner</em>
+    </h1>
+    <p class="hero-sub">
+      7 years of helping small and medium businesses go online — building websites, running SEO, managing marketing, and turning offline businesses into digital success stories through direct, honest client conversations.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start a Project</a>
+      <a href="#services" class="btn-outline">See What I Do</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">7+</div>
+        <div class="stat-label">Years Active</div>
+      </div>
+      <div>
+        <div class="stat-num">120+</div>
+        <div class="stat-label">Clients Served</div>
+      </div>
+      <div>
+        <div class="stat-num">80+</div>
+        <div class="stat-label">Websites Delivered</div>
+      </div>
+      <div>
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-tag">Who I Am</div>
+  <h2>Direct. Practical.<br>Results-Focused.</h2>
+  <p class="section-intro">
+    I work directly with you — no agencies, no delays. I listen to your business problem first, then build the right digital solution around your goals and budget.
+  </p>
+  <div class="about-grid">
+    <div class="expertise-card">
+      <div class="expertise-icon">🌐</div>
+      <h3>Website Building & Digital Presence</h3>
+      <p>
+        Whether you have no website at all or one that isn't working — I help MSME businesses build professional, fast, conversion-ready websites. From design to launch, I handle everything so you don't have to worry about the technical side.
+      </p>
+      <div class="expertise-tags">
+        <span class="tag">Website Design</span>
+        <span class="tag">Landing Pages</span>
+        <span class="tag">E-Commerce</span>
+        <span class="tag">CMS Setup</span>
+        <span class="tag">Mobile-Friendly</span>
+      </div>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">📈</div>
+      <h3>SEO, Marketing & Business Recharge</h3>
+      <p>
+        I help MSMEs get found on Google, grow their online reach, and recharge stagnant businesses. From search engine optimization to Google Ads and content strategy — I focus on what actually moves the needle for small and medium businesses.
+      </p>
+      <div class="expertise-tags">
+        <span class="tag sky">SEO</span>
+        <span class="tag sky">Google Ads</span>
+        <span class="tag sky">Local Marketing</span>
+        <span class="tag sky">Lead Generation</span>
+        <span class="tag sky">Productivity</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-tag">What I Offer</div>
+  <h2>Services for MSMEs<br>Going Digital</h2>
+  <p class="section-intro">
+    Practical, focused services for small and medium businesses — whether you're starting from zero or ready to scale up.
+  </p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3>Website Creation</h3>
+      <p>No website? I build professional, fast websites for MSMEs from scratch — tailored to your business and ready to bring in customers.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3>Website Improvement</h3>
+      <p>Already have a website that isn't performing? I redesign and optimize existing sites for speed, SEO, and user experience.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3>SEO</h3>
+      <p>Rank higher on Google so the right customers find you. Keyword research, on-page SEO, content strategy, and local SEO for MSME businesses.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <h3>Business Digitization</h3>
+      <p>I help offline businesses move fully online — digital tools, payment systems, booking pages, and online catalogues that work 24/7.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <h3>Google Ads Management</h3>
+      <p>Certified Google Ads for MSMEs. Targeted campaigns that bring real inquiries and sales — not just traffic — at budgets that suit small businesses.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <h3>Productivity & Business Recharge</h3>
+      <p>I help MSMEs identify what's holding them back, streamline operations, and use the right tools to increase output and grow faster.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-tag">My Work</div>
+  <h2>Projects Delivered</h2>
+  <p class="section-intro">
+    A selection of real work — websites built, businesses launched online, and results delivered for MSME clients across different industries.
+  </p>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-thumb">🛒</div>
+      <div class="project-body">
+        <div class="project-type">E-Commerce Website</div>
+        <h3>Local Retailer → Online Store</h3>
+        <p>Built a complete WooCommerce store for a clothing retailer with no online presence. Product listings, payment gateway, mobile-optimized — delivered in 3 weeks.</p>
+        <div class="project-result">↑ 60% revenue in first 2 months online</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-thumb">🏗️</div>
+      <div class="project-body">
+        <div class="project-type">Website + SEO</div>
+        <h3>Construction Company Rebrand</h3>
+        <p>Redesigned an outdated website and ran a 3-month SEO campaign. Now ranks on Google page 1 for 12 local keywords and gets regular inquiries.</p>
+        <div class="project-result">↑ 3× organic traffic in 90 days</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-thumb">🍽️</div>
+      <div class="project-body">
+        <div class="project-type">Landing Page + Google Ads</div>
+        <h3>Restaurant Online Ordering</h3>
+        <p>Created a high-converting landing page with online ordering and ran Google Ads. Went from zero digital presence to 80+ weekly online orders.</p>
+        <div class="project-result">80+ weekly orders from digital channels</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-thumb">💼</div>
+      <div class="project-body">
+        <div class="project-type">Freelance Portfolio Website</div>
+        <h3>Consultant Online Presence</h3>
+        <p>Built a complete portfolio site, service pages, and lead capture system for a consulting professional entering the freelance space.</p>
+        <div class="project-result">First paid client within 3 weeks of launch</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-thumb">📦</div>
+      <div class="project-body">
+        <div class="project-type">SEO + Content Strategy</div>
+        <h3>Wholesale Supplier Visibility</h3>
+        <p>A B2B wholesale MSME struggled to get found by buyers. Built content strategy and SEO plan that tripled inquiry volume from Google in 4 months.</p>
+        <div class="project-result">↑ 3× buyer inquiries from organic search</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-thumb">🎓</div>
+      <div class="project-body">
+        <div class="project-type">Education Website</div>
+        <h3>Coaching Institute Digital Launch</h3>
+        <p>Full website with admission forms, course pages, and student inquiry system for a coaching institute going digital for the first time.</p>
+        <div class="project-result">150+ student inquiries in first month</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="section-tag">Track Record</div>
+  <h2>7 Years of Freelance Work</h2>
+  <p class="section-intro">
+    Built a consistent freelance career by solving real problems for real clients — from solo entrepreneurs to growing SMEs, across platforms and independently.
+  </p>
+  <div class="exp-timeline">
+    <div class="exp-item">
+      <div>
+        <div class="exp-year">2022 – Present</div>
+        <div class="exp-company">Independent</div>
+      </div>
+      <div>
+        <div class="exp-role">Senior Freelance Digital Consultant</div>
+        <p class="exp-desc">Working directly with MSME clients on website builds, SEO, Google Ads, and business digitization. Managing long-term retainer clients and project-based work for international businesses moving online.</p>
+        <div class="exp-tags">
+          <span class="tag">SEO</span><span class="tag">Web Development</span>
+          <span class="tag">Google Ads</span><span class="tag sky">International Clients</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-year">2020 – 2022</div>
+        <div class="exp-company">Fiverr Pro / Upwork</div>
+      </div>
+      <div>
+        <div class="exp-role">Top-Rated Freelancer</div>
+        <p class="exp-desc">Achieved Top Rated status on both platforms. Completed 100+ projects for clients from the UK, US, Canada, and Australia — websites, SEO campaigns, and digital marketing for MSMEs across multiple sectors.</p>
+        <div class="exp-tags">
+          <span class="tag">100+ Projects</span><span class="tag">Top Rated</span>
+          <span class="tag sky">5-Star Reviews</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-year">2018 – 2020</div>
+        <div class="exp-company">Agency Collaboration</div>
+      </div>
+      <div>
+        <div class="exp-role">Digital Marketing Specialist</div>
+        <p class="exp-desc">Contributed to digital campaigns for established brands and SME clients through agency partnerships. Managed Google Ads accounts, handled client communication, and delivered website projects for businesses in retail, services, and e-commerce.</p>
+        <div class="exp-tags">
+          <span class="tag">Brand Campaigns</span>
+          <span class="tag">Client Liaison</span>
+          <span class="tag sky">Retail & E-Commerce</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-year">2017 – 2018</div>
+        <div class="exp-company">Early Career</div>
+      </div>
+      <div>
+        <div class="exp-role">Freelance Beginner → Foundation Builder</div>
+        <p class="exp-desc">Started with small projects — basic websites, social media pages, digital setups — and grew through direct client feedback. This hands-on start built the foundation of listening-first, delivering-second that still defines how I work today.</p>
+        <div class="exp-tags">
+          <span class="tag">Foundations</span>
+          <span class="tag">Small Business Projects</span>
+          <span class="tag sky">Direct Communication</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CERTIFICATIONS -->
+<section class="certs-bg" id="certifications">
+  <div class="section-tag">Credentials</div>
+  <h2>Certified & Verified</h2>
+  <p class="section-intro">
+    Professionally certified by Google and leading platforms — so you know the work is backed by tested, up-to-date knowledge.
+  </p>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <span class="cert-logo">🎯</span>
+      <div class="cert-issuer">Google</div>
+      <div class="cert-name">Google Ads Search Certification</div>
+      <div class="cert-year">Issued 2024</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-logo">📊</span>
+      <div class="cert-issuer">Google</div>
+      <div class="cert-name">Google Analytics (GA4) Certification</div>
+      <div class="cert-year">Issued 2024</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-logo">📱</span>
+      <div class="cert-issuer">Google</div>
+      <div class="cert-name">Google Ads Display Certification</div>
+      <div class="cert-year">Issued 2023</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-logo">🛒</span>
+      <div class="cert-issuer">Google</div>
+      <div class="cert-name">Google Shopping Ads Certification</div>
+      <div class="cert-year">Issued 2023</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-logo">📈</span>
+      <div class="cert-issuer">HubSpot</div>
+      <div class="cert-name">Inbound Marketing Certification</div>
+      <div class="cert-year">Issued 2023</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-logo">🔍</span>
+      <div class="cert-issuer">SEMrush</div>
+      <div class="cert-name">SEO Fundamentals Certification</div>
+      <div class="cert-year">Issued 2024</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-logo">⭐</span>
+      <div class="cert-issuer">Fiverr</div>
+      <div class="cert-name">Top Rated Seller</div>
+      <div class="cert-year">2020 – Present</div>
+    </div>
+    <div class="cert-card">
+      <span class="cert-logo">🏅</span>
+      <div class="cert-issuer">Upwork</div>
+      <div class="cert-name">Top Rated Freelancer</div>
+      <div class="cert-year">2021 – Present</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="trust" id="testimonials">
+  <div class="section-tag">Client Feedback</div>
+  <h2>What Clients Say</h2>
+  <p class="section-intro">
+    Real feedback from MSME owners — built on direct communication and honest delivery.
+  </p>
+
+  <div class="trust-row">
+    <div class="trust-badge">🔒 SSL Secured Payments</div>
+    <div class="trust-badge">🌍 International Clients Welcome</div>
+    <div class="trust-badge">⏱️ On-Time Delivery</div>
+    <div class="trust-badge">📞 Direct Communication Always</div>
+    <div class="trust-badge">🔁 Revisions Included</div>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Mohammed built our business website from scratch in under 3 weeks. He understood exactly what we needed and kept us informed every step. We now receive inquiries daily through the site."</p>
+      <div class="testimonial-author">Arjun Mehta</div>
+      <div class="testimonial-from">Manufacturing MSME Owner, India</div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"We had zero online presence. Sameer took us completely online — website, Google listing, SEO — within a month. The increase in customer calls has been remarkable for our business."</p>
+      <div class="testimonial-author">Khalid Al-Rashidi</div>
+      <div class="testimonial-from">Retail Business Owner, UAE</div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"He actually picks up and talks. No ticket systems, no delays — real conversation, real solutions. My old website is now performing like it was brand new and ranking on Google."</p>
+      <div class="testimonial-author">James Thornton</div>
+      <div class="testimonial-from">Service Business Owner, UK</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="payment-section" id="payment">
+  <div class="section-tag">Secure & Simple</div>
+  <h2>Easy Payments for<br>International Clients</h2>
+  <p class="section-intro">
+    No matter where you are in the world, I make it simple and safe to work with me. Choose what works for you.
+  </p>
+
+  <div class="payment-methods">
+    <div class="pay-method">💳 PayPal</div>
+    <div class="pay-method">🏦 Bank Transfer (SWIFT/IBAN)</div>
+    <div class="pay-method">💰 Wise (TransferWise)</div>
+    <div class="pay-method">🔐 Payoneer</div>
+    <div class="pay-method">📦 Upwork Escrow</div>
+    <div class="pay-method">🌟 Fiverr Secure</div>
+    <div class="pay-method">💎 Stripe (Invoice)</div>
+  </div>
+
+  <div class="security-badges">
+    <div class="security-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      256-bit SSL Encryption
+    </div>
+    <div class="security-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      Milestone-based Payments Available
+    </div>
+    <div class="security-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      Money-back Guarantee on First Project
+    </div>
+    <div class="security-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      Signed Agreement for Every Engagement
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <div>
+      <h3>Ready to grow your business online?</h3>
+      <p>Book a free 30-minute call — no commitment. Let's talk about what your business needs.</p>
+    </div>
+    <a href="#contact" class="btn-primary" style="white-space:nowrap;">Book Free Call</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag">Get in Touch</div>
+  <h2>Let's Talk About<br>Your Business.</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>I reply within 24 hours</h3>
+      <p>
+        Every project starts with a conversation. Tell me about your business — what you have, what you need, and where you want to go. I'll give you honest advice and a clear plan.
+      </p>
+      <a href="mailto:civilmalik01@email.com" class="contact-link">✉️ civilmalik01@email.com</a>
+      <a href="tel:+917535850986" class="contact-link">📞 +91 7535850986</a>
+      <a href="https://wa.me/917535850986" class="contact-link">📱 WhatsApp — International Welcome</a>
+      <a href="https://www.linkedin.com/in/mohammedsameer" class="contact-link">💼 LinkedIn Profile</a>
+
+      <div style="margin-top:2rem;padding:1.3rem;background:var(--navy-mid);border-radius:4px;border:1px solid rgba(37,99,235,0.15);">
+        <p style="font-size:0.76rem;color:var(--text-muted);margin-bottom:0.35rem;letter-spacing:0.06em;text-transform:uppercase;">Typical Response</p>
+        <p style="color:var(--blue-light);font-size:0.98rem;font-weight:500;">Within 2–6 hours</p>
+        <p style="color:var(--text-muted);font-size:0.82rem;margin-top:0.25rem;">Mon – Sat, 9AM – 8PM IST</p>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="john@company.com" required>
+      </div>
+      <div class="form-group">
+        <label>Country</label>
+        <select>
+          <option>India</option>
+          <option>United Kingdom</option>
+          <option>United States</option>
+          <option>Canada</option>
+          <option>Australia</option>
+          <option>UAE / Dubai</option>
+          <option>Saudi Arabia</option>
+          <option>Germany</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select>
+          <option>Build a New Website</option>
+          <option>Improve Existing Website</option>
+          <option>SEO (Search Engine Optimization)</option>
+          <option>Google Ads Management</option>
+          <option>Business Digitization</option>
+          <option>Productivity & Business Recharge</option>
+          <option>General Consultation</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Budget (USD)</label>
+        <select>
+          <option>$100 – $400</option>
+          <option>$400 – $1,000</option>
+          <option>$1,000 – $3,000</option>
+          <option>$3,000+</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell me about your business</label>
+        <textarea placeholder="What does your business do, and what problem are you trying to solve?"></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message →</button>
+      <p id="form-success" style="display:none;color:#60A5FA;font-size:0.87rem;">✓ Message sent! I'll be in touch within 24 hours.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2025 Mohammed Sameer. All rights reserved. · Freelance Digital Consultant · Serving Globally</div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
+    });
+  });
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 40 ? '0 4px 30px rgba(0,0,0,0.35)' : 'none';
+  });
+</script>
+</body>
+</html>
